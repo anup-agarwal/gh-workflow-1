@@ -8,6 +8,8 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v4
+      - name: Installing dependencies
+        run: npm i
       - name: checking lint
         run: npm run lint
   test:
@@ -16,6 +18,8 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v4
+      - name: Installing dependencies
+        run: npm i
       - name: Testing code
         run: npm run test
   build:
@@ -24,5 +28,7 @@ jobs:
     steps:
       - name: Get the code
         uses: actions/checkout@v4
+      - name: Installing dependencies
+        run: npm i
       - name: "building code"
         run: npm run build
