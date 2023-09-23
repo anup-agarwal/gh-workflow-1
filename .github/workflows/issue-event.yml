@@ -1,10 +1,10 @@
 name: "On Issue event"
 
-on: "issues"
+on: ["issues", "workflow_dispatch"]
 
 jobs:
   event:
     runs-on: "ubuntu-latest"
     steps:
       - name: print context
-        run: echo ${{toJson(github)}}
+        run: echo "${{toJson(github)}}"
