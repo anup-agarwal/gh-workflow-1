@@ -1,0 +1,28 @@
+name: "sanitise"
+
+on: ["push"]
+
+jobs:
+  lint:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: checking lint
+        run: npm run lint
+  test:
+    needs: ["lint"]
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: Testing code
+        run: npm run test
+  build:
+    needs: ["test"]
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+      - name: "building code"
+        run: npm run build
